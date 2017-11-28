@@ -9,3 +9,5 @@ export const REMEMBERTIME = 'REMEMBERTIME'
 export const REMEMBERITEM = 'REMEMBERITEM'
 
 export const INITDATA = 'INITDATA'
+
+export const INTEVALTIME = 'INTEVALTIME'

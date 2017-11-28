@@ -8,7 +8,7 @@ import actions from './actions'
 Vue.use(Vuex)
 
 const state = {
-  allTime: 6000,
+  allTime: 600,
   itemNum: 0,
   timer: null,
   problems: [

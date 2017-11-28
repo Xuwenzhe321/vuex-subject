@@ -29,28 +29,26 @@
       }
     },
     mounted: function () {
-      console.log(this.allTime)
       this.timer = setInterval(() => {
         this.intevalChange()
       }, 1000)
     },
     computed: {
-      allTime: function () {
+      remainTime: function () {
         return this.$store.state.allTime
       },
       getMin: function () {
-        const min = parseInt(this.allTime / 60)
+        const min = parseInt(this.remainTime / 60)
         return min < 10 ? '0' + min : min
       },
       getSec: function () {
-        const sec = this.allTime % 60
+        const sec = this.remainTime % 60
         return sec < 10 ? '0' + sec : sec
       }
     },
     methods: {
       intevalChange: function () {
-        this.allTime--
-        if (this.allTime === 0) {
+        if (this.remainTime === 0) {
           clearInterval(this.timer)
         }
       }

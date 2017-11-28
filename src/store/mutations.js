@@ -9,5 +9,9 @@ export default {
     state.itemNum = 0
     state.nowTime = 0
     state.answerId = []
+  },
+  [type.INTEVALTIME] (state) {
+    const timer = null
+    state.nowTime < 0 ? setInterval(() => { state.nowTime-- }) : clearInterval(timer)
   }
 }
