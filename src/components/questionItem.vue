@@ -1,44 +1,71 @@
 <template>
     <div class="item-con">
-      <div class="num question-item">答题数<span class="remain">{{ problems.length }}</span></div>
+      <div class="num question-item">答题数<span class="remain">{{ problems.length-itemNum }}</span></div>
       <div class="title question-item">{{ problems[itemNum].problemTitle }} <span class="triangle"></span></div>
       <div class="question-lists">
-        <li v-for="(item, key) in problems[itemNum].answers"><input type="radio" :id="item.answerId" name="answer"><label :for="item.answerId">{{ item.text }}</label></li>
+        <li v-for="(item, key) in problems[itemNum].answers"><input v-model="chooseId" type="radio" :value="item" :id="item.answerId" name="answer"><label :for="item.answerId">{{ item.text }}</label></li>
       </div>
       <div class="btns">
-        <button class="red-bg next-btn">下一题</button>
-        <button class="yellow-bg pass-btn">跳过</button>
-        <button class="green-bg done-btn">交卷</button>
+        <button class="red-bg next-btn" @click="nextItem" v-if="itemNum < problems.length-1">下一题</button>
+        <button class="green-bg done-btn" @click="postAll" v-else>交卷</button>
       </div>
-      <div class="pass-chance-num">
-        还剩3次跳过机会
-      </div>
+      <modal></modal>
     </div>
 </template>
 
 <script>
   import { mapState, mapActions } from 'vuex'
+  import modal from '../components/modal'
   export default {
+    components:{
+      'modal': modal
+    },
     data () {
-      return {}
+      return {
+        chooseId: null
+      }
     },
     created () {
       this.initData()
     },
     mounted () {
-      console.log(this.itemNum)
     },
     computed: {
       ...mapState([
         'itemNum',
-        'nowTime',
+        'allTime',
         'timer',
         'problems'])
     },
     methods: {
       ...mapActions([
-        'initData'
-      ])
+        'initData','addItem'
+      ]),
+      nextItem () {
+        console.log(this.itemNum)
+        if(this.chooseId){
+          let obj = {}
+          obj.answerId = this.chooseId.answerId
+          obj.fid = this.chooseId.fid
+          this.chooseId = null
+          this.addItem(obj)
+        }else{
+          alert('请选择')
+        }
+      },
+      postAll () {
+        if(this.chooseId){
+          let obj = {}
+          obj.answerId = this.chooseId.answerId
+          obj.fid = this.chooseId.fid
+          this.chooseId = null
+          this.addItem(obj)
+          clearInterval(this.timer)
+          //this.$router.push('score')
+        }else{
+          alert('请选择')
+        }
+      }
     }
   }
 </script>
@@ -121,9 +148,8 @@
     background-size:100% 100%;
   }
   .btns{
-    display: flex;
-    justify-content: space-between;
     margin-top: 0.5rem;
+    text-align: center;
   }
   .btns button{
     -webkit-appearance: none;
