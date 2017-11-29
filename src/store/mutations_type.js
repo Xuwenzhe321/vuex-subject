@@ -2,12 +2,11 @@
  * Created by Administrator on 2017-11-27.
  */
 
-export const NEXTITEM = 'NEXTITEM'
+export const REMEBER_ITEM = 'REMEBER_ITEM'
 
-export const REMEMBERTIME = 'REMEMBERTIME'
+export const ADD_ITEM = 'ADD_ITEM'
 
-export const REMEMBERITEM = 'REMEMBERITEM'
+export const INIT_DATA = 'INIT_DATA'
 
-export const INITDATA = 'INITDATA'
+export const INTEVAL_TIME = 'INTEVAL_TIME'
 
-export const INTEVALTIME = 'INTEVALTIME'

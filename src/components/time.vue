@@ -21,6 +21,7 @@
 </template>
 
 <script>
+  import {mapActions} from 'vuex'
   export default {
     data () {
       return {
@@ -28,10 +29,8 @@
         timer: null
       }
     },
-    mounted: function () {
-      this.timer = setInterval(() => {
-        this.intevalChange()
-      }, 1000)
+    created: function () {
+      this.$store.commit('INTEVAL_TIME')
     },
     computed: {
       remainTime: function () {
@@ -47,11 +46,6 @@
       }
     },
     methods: {
-      intevalChange: function () {
-        if (this.remainTime === 0) {
-          clearInterval(this.timer)
-        }
-      }
     }
   }
 </script>

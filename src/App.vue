@@ -52,5 +52,6 @@ export default {
     height:100%;
     background: #fff;
     margin:0 auto;
+    position: relative;
   }
 </style>

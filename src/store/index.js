@@ -8,7 +8,7 @@ import actions from './actions'
 Vue.use(Vuex)
 
 const state = {
-  allTime: 600,
+  allTime: 8,
   itemNum: 0,
   timer: null,
   problems: [
@@ -103,60 +103,60 @@ const state = {
       ]
     },
     {
-      problemId: 3,
+      problemId: 4,
       problemTitle: '你猜猜猜我的性别？',
       answers: [
         {
           answerId: 'a9',
-          fid: 3,
+          fid: 4,
           text: '男',
           isTrue: false
         },
         {
           answerId: 'a10',
-          fid: 3,
+          fid: 4,
           text: '女',
           isTrue: false
         },
         {
           answerId: 'a11',
-          fid: 3,
+          fid: 4,
           text: '男女',
           isTrue: true
         },
         {
           answerId: 'a12',
-          fid: 3,
+          fid: 4,
           text: '不男不女',
           isTrue: false
         }
       ]
     },
     {
-      problemId: 4,
+      problemId: 5,
       problemTitle: '你猜猜猜我的性别？',
       answers: [
         {
           answerId: 'a13',
-          fid: 43,
+          fid: 5,
           text: '男',
           isTrue: false
         },
         {
           answerId: 'a14',
-          fid: 4,
+          fid: 5,
           text: '女',
           isTrue: false
         },
         {
           answerId: 'a15',
-          fid: 4,
+          fid: 5,
           text: '男女',
           isTrue: true
         },
         {
           answerId: 'a16',
-          fid: 4,
+          fid: 5,
           text: '不男不女',
           isTrue: false
         }
