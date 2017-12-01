@@ -8,6 +8,7 @@ import actions from './actions'
 Vue.use(Vuex)
 
 const state = {
+  score: 20,
   allTime: 8,
   itemNum: 0,
   timer: null,

@@ -18,8 +18,19 @@ export default {
     console.log(state.itemNum)
   },
   [type.REMEBER_ITEM] (state, param) {
-    state.answerId.push(param)
-    console.log(state.answerId)
+    let problems = state.problems;
+    for(let i=0;i <problems.length;i ++){
+      if(problems[i].problemId === param.fid){
+        for(let j=0; j<problems[i].answers.length;j ++){
+          if(problems[i].answers[j].answerId === param.answerId){
+            if(problems[i].answers[j].isTrue){
+              state.answerId.push(param)
+            }
+          }
+        }
+      }
+    }
+
   },
   [type.INTEVAL_TIME] (state) {
     state.timer = setInterval(() => {

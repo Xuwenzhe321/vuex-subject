@@ -9,20 +9,26 @@
         <button class="red-bg next-btn" @click="nextItem" v-if="itemNum < problems.length-1">下一题</button>
         <button class="green-bg done-btn" @click="postAll" v-else>交卷</button>
       </div>
-      <modal></modal>
+      <modal v-if="isDone">
+          <done-modal></done-modal>
+      </modal>
     </div>
 </template>
 
 <script>
   import { mapState, mapActions } from 'vuex'
   import modal from '../components/modal'
+  import doneModal from '../components/doenModal'
   export default {
     components:{
-      'modal': modal
+      'modal': modal,
+      'done-modal': doneModal
     },
     data () {
       return {
-        chooseId: null
+        chooseId: null,
+        isDone: false,
+        allScore: null
       }
     },
     created () {
@@ -35,7 +41,8 @@
         'itemNum',
         'allTime',
         'timer',
-        'problems'])
+        'problems',
+        'answerId'])
     },
     methods: {
       ...mapActions([
@@ -61,6 +68,7 @@
           this.chooseId = null
           this.addItem(obj)
           clearInterval(this.timer)
+          this.isDone = true
           //this.$router.push('score')
         }else{
           alert('请选择')
@@ -162,17 +170,8 @@
     width: 2.3rem;
     height: 1rem;
     color: #fff;
-    font-size: 16px;
   }
-  .btns button.next-btn{
-    box-shadow: 0 2px 2px 0 #d15050;
-  }
-  .btns button.pass-btn{
-    box-shadow: 0 2px 2px 0 #c68d11;
-  }
-  .btns button.done-btn{
-    box-shadow: 0 2px 2px 0 #6eac0c;
-  }
+
   .pass-chance-num{
     text-align: center;
     margin-top: 0.5rem;

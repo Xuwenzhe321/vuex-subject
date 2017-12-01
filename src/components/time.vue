@@ -11,9 +11,9 @@
     <div class="score">
       <svg width="1.733rem" height="1.733rem" viewBox="0 0 200 200"  preserveAspectRatio="xMinYMin slice"  version="1.1"xmlns="http://www.w3.org/2000/svg">
         <g><circle cx="100" cy="100" r="98" stroke="#ffde00" stroke-width="6" fill="#dd4b4b"/></g>
-        <text x="60" y="100" style="font-size: 48pt;fill: #fff;">60</text>
+        <text x="45" y="100" style="font-size: 48pt;fill: #fff;">100</text>
         <line x1="30" y1="120" x2="170" y2="120" style="stroke:#fff;stroke-width:2"/>
-        <text x="65" y="160" style="font-size: 24pt;fill: #fff;">分数</text>
+        <text x="55" y="160" style="font-size: 24pt;fill: #fff;">总分数</text>
       </svg>
     </div>
     <div class="begin-tip">答题开始咯</div>

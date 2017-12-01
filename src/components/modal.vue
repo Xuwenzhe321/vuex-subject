@@ -1,6 +1,6 @@
 <template>
     <div id="modal">
-
+      <slot>obj is null</slot>
     </div>
 </template>
 
@@ -20,5 +20,8 @@
     width:100%;
     height:100%;
     background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>
