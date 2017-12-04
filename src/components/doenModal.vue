@@ -1,7 +1,7 @@
 <template>
   <div id="doneModal">
     <div class="top-score">
-      <div class="tips">考试时间到了哦</div>
+      <div class="tips">快看看成绩吧</div>
       <div class="score">
         <span class="score-num" v-text="answerId.length*score"></span>
         <span class="tag">分</span>
@@ -21,10 +21,10 @@
         </div>
       </div>
     </div>
-    <div class="desc" v-text="tipsType"></div>
+    <div class="desc" v-html="tipsType"></div>
     <div class="btns">
       <div class="row flex">
-        <button class="red-bg">再来一次</button><button class="yellow-bg">考试排行榜</button>
+        <button class="red-bg" @click="againPlay">再来一次</button><button class="yellow-bg" @click="shareBorad">考试排行榜</button>
       </div>
       <div class="row">
         <button class="green-bg share-btn">分享好友</button>
@@ -41,24 +41,47 @@
     },
     computed: {
       ...mapState([
+        'allTime',
         'problems',
         'answerId',
         'score'
       ]),
       tipsType () {
         var totalScore = this.answerId.length * this.score
-        switch (totalScore)
-        {
-          case 70< totalScore < 100:
-            console.log(1)
-            return  "荣获【学霸】的牛逼称号<br>苍老师都以你为荣";
-          case 50 < totalScore < 70:
-            console.log(2)
-            return "还差一点哦，加油！"
-          case totalScore < 50:
-            console.log(3)
-            return "荣获【学渣】称号，老师都被你气的吐血了"
+        if(70< totalScore &&  totalScore < 100){
+          return '荣获【学霸】的牛逼称号<br>苍老师都以你为荣';
         }
+        else if(50 < totalScore && totalScore < 70){
+          return "还差一点哦，加油！"
+        }
+        else if(totalScore < 50){
+          return "荣获【学渣】称号<br>老师都被你气的吐血了"
+
+        }
+//        switch (totalScore)
+//        {
+//          case 70< totalScore < 100:
+//            console.log(1)
+//            return  "荣获【学霸】的牛逼称号<br>苍老师都以你为荣";
+//          case 50 < totalScore < 70:
+//            console.log(2)
+//            return "还差一点哦，加油！"
+//          case totalScore < 50:
+//            console.log(3)
+//            return "荣获【学渣】称号，老师都被你气的吐血了"
+//        }
+      }
+    },
+    methods: {
+      shareBorad () {
+        this.$router.push('score')
+      },
+      againPlay () {
+        console.log(1)
+        this.$router.push({
+          path: '/',
+          name: 'home'
+        })
       }
     }
   }
