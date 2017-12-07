@@ -1,6 +1,6 @@
 <template>
   <div id="app" :style="{height:height+'px'}">
-    <router-view></router-view>
+      <router-view></router-view>
   </div>
 </template>
 

@@ -37,7 +37,9 @@
   import {mapState} from 'vuex'
   export default {
     data () {
-      return {}
+      return {
+        totalScore: 0
+      }
     },
     computed: {
       ...mapState([
@@ -47,41 +49,29 @@
         'score'
       ]),
       tipsType () {
-        var totalScore = this.answerId.length * this.score
-        if(70< totalScore &&  totalScore < 100){
+        const Score = this.answerId.length * this.score
+        this.totalScore = Score
+        if(70< Score &&  Score < 100){
           return '荣获【学霸】的牛逼称号<br>苍老师都以你为荣';
         }
-        else if(50 < totalScore && totalScore < 70){
+        else if(50 < Score && Score < 70){
           return "还差一点哦，加油！"
         }
-        else if(totalScore < 50){
+        else if(Score < 50){
           return "荣获【学渣】称号<br>老师都被你气的吐血了"
 
         }
-//        switch (totalScore)
-//        {
-//          case 70< totalScore < 100:
-//            console.log(1)
-//            return  "荣获【学霸】的牛逼称号<br>苍老师都以你为荣";
-//          case 50 < totalScore < 70:
-//            console.log(2)
-//            return "还差一点哦，加油！"
-//          case totalScore < 50:
-//            console.log(3)
-//            return "荣获【学渣】称号，老师都被你气的吐血了"
-//        }
       }
     },
     methods: {
       shareBorad () {
+        this.$store.commit('GET_RESULT', this.totalScore)
         this.$router.push('score')
       },
       againPlay () {
         console.log(1)
-        this.$router.push({
-          path: '/',
-          name: 'home'
-        })
+        this.$emit('test')
+        this.$router.push('/')
       }
     }
   }

@@ -164,7 +164,13 @@ const state = {
       ]
     }
   ],
-  answerId: []
+  answerId: [],
+  userInfo: {
+    name: "我就是当前用户",
+    avatar: "/static/8.jpg",
+    score: 0,
+    uid: 'u2017'
+  }
 }
 
 export default new Vuex.Store({

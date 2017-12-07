@@ -37,4 +37,7 @@ export default {
       state.allTime === 0 ? clearInterval(state.timer) :  state.allTime--
     }, 1000)
   },
+  [type.GET_RESULT] (state, param) {
+    state.userInfo.score = param
+  }
 }

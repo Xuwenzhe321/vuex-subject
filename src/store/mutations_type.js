@@ -10,3 +10,4 @@ export const INIT_DATA = 'INIT_DATA'
 
 export const INTEVAL_TIME = 'INTEVAL_TIME'
 
+export const GET_RESULT  = 'GET_RESULT'

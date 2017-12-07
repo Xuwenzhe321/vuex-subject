@@ -52,13 +52,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 })
 const jsonServer = require('json-server')
 const server = jsonServer.create()
-const router = jsonServer.router('/mock/db.json')
+const router = jsonServer.router('mock/db.json')
 const middlewares = jsonServer.defaults()
 
 server.use(middlewares)
-server.use(router)
-server.listen(3000, () => {
-  console.log('JSON server is running at port 3000 ....')
+server.use('/api',router)
+server.listen(3001, () => {
+  console.log('JSON server is running at port 3001 ....')
 })
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port
