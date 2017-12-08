@@ -69,8 +69,6 @@
         this.$router.push('score')
       },
       againPlay () {
-        console.log(1)
-        this.$emit('test')
         this.$router.push('/')
       }
     }

@@ -9,17 +9,15 @@
         <button class="red-bg next-btn" @click="nextItem" v-if="itemNum < problems.length-1">下一题</button>
         <button class="green-bg done-btn" @click="postAll" v-else>交卷</button>
       </div>
-      <keep-alive>
       <modal v-if="isDone">
-          <done-modal v-on:test="changeClose"></done-modal>
+          <done-modal></done-modal>
       </modal>
-      </keep-alive>
     </div>
 </template>
 <script>
   import { mapState, mapActions } from 'vuex'
   import modal from '../components/modal'
-  import doneModal from '../components/doenModal'
+  import doneModal from './doneModal'
   export default {
     components:{
       'modal': modal,
@@ -52,10 +50,6 @@
       ])
     },
     methods: {
-      changeClose () {
-        console.log('----')
-        this.isDone = false
-      },
       ...mapActions([
         'initData','addItem'
       ]),
