@@ -26,9 +26,6 @@ npm run dev
 ```
 
 
-
-
-
 ### 预览
 
 <img src="static/doc.gif">
