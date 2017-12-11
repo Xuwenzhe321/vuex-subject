@@ -35,9 +35,15 @@
       this.initData()
     },
     mounted () {
+
     },
     activated () {
-      console.log('it me')
+//      判断是否完成答题，从首页进入取消遮罩，从排行榜返回仍显示遮罩
+      if(this.$store.state.isDone){
+        this.isDone = true
+      }else{
+        this.isDone = false
+      }
     },
     computed: {
       ...mapState([
@@ -47,19 +53,20 @@
         'problems',
         'answerId',
         'resultScore'
-      ])
+      ]),
     },
     methods: {
       ...mapActions([
         'initData','addItem'
       ]),
+//    下一步
       nextItem () {
-        console.log(this.itemNum)
         if(this.chooseId){
           let obj = {}
           obj.answerId = this.chooseId.answerId
           obj.fid = this.chooseId.fid
           this.chooseId = null
+//        action提交
           this.addItem(obj)
         }else{
           alert('请选择')
@@ -71,10 +78,12 @@
           obj.answerId = this.chooseId.answerId
           obj.fid = this.chooseId.fid
           this.chooseId = null
+//        action提交
           this.addItem(obj)
+//        最后一题清楚定时器
           clearInterval(this.timer)
+          this.$store.commit('CLEAR_TIME')
           this.isDone = true
-          //this.$router.push('score')
         }else{
           alert('请选择')
         }

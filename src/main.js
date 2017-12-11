@@ -7,6 +7,7 @@ import store from './store'
 import './utils/flexsible'
 import axios from 'axios'
 Vue.config.productionTip = false
+Vue.config.debug = true
 Vue.prototype.$http = axios
 /* eslint-disable no-new */
 new Vue({
@@ -15,4 +16,21 @@ new Vue({
   store,
   template: '<App/>',
   components: { App }
+})
+
+router.beforeEach((to, from, next) => {
+  let isDone = store.state.isDone
+  console.log(to.path)
+  console.log(from.path)
+  if(to.path==='/question' && from.path==='/score') {
+    store.commit('IS_DONE',true)
+    next()
+  }else if(from.path ==='/'){
+    store.commit('INIT_DATA')
+    next()
+  }
+  else{
+    next()
+    // console.log('小时')
+  }
 })

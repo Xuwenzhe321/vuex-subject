@@ -43,12 +43,12 @@
     },
     computed: {
       ...mapState([
-        'allTime',
         'problems',
         'answerId',
         'score'
       ]),
       tipsType () {
+//        定义得分板文字信息
         const Score = this.answerId.length * this.score
         this.totalScore = Score
         if(70< Score &&  Score < 100){
@@ -64,11 +64,14 @@
       }
     },
     methods: {
+//      统计结果，并跳转排行榜
       shareBorad () {
         this.$store.commit('GET_RESULT', this.totalScore)
         this.$router.push('score')
       },
+//      再来一次
       againPlay () {
+        this.$store.commit('CLEAR_TIME')
         this.$router.push('/')
       }
     }

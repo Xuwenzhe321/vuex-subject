@@ -1,6 +1,8 @@
 <template>
   <div>
-    <time-score></time-score>
+    <keep-alive>
+      <time-score></time-score>
+    </keep-alive>
     <question-item></question-item>
   </div>
 </template>

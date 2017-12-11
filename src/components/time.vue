@@ -25,14 +25,18 @@
   export default {
     data () {
       return {
-        // 答题时间，单位秒
-        timer: null
+
       }
     },
-    created: function () {
-      this.$store.commit('INTEVAL_TIME')
+//根据答题完成状态 来决定是否清楚定时器
+//重新开始答题isDone为false，如果从排行榜返回为true
+    activated () {
+      if(!this.$store.state.isDone){
+        this.$store.commit('INTEVAL_TIME')
+      }
     },
     computed: {
+//    计算剩余时间
       remainTime: function () {
         return this.$store.state.allTime
       },

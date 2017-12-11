@@ -9,7 +9,7 @@ Vue.use(Vuex)
 
 const state = {
   score: 20,
-  allTime: 8,
+  allTime: 20,
   itemNum: 0,
   timer: null,
   problems: [
@@ -170,7 +170,8 @@ const state = {
     avatar: "/static/8.jpg",
     score: 0,
     uid: 'u2017'
-  }
+  },
+  isDone: false
 }
 
 export default new Vuex.Store({

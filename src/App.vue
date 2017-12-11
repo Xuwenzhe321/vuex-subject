@@ -1,6 +1,8 @@
 <template>
   <div id="app" :style="{height:height+'px'}">
+    <keep-alive include="questionCom">
       <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
