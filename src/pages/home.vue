@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="index-page">
       <router-link :to="{path: '/question'}" tag="button" class="begin-btn">开始答题</router-link>
     </div>
 </template>
@@ -12,6 +12,10 @@
   }
 </script>
 <style>
+  .index-page{
+    padding:50px 0;
+    text-align: center;
+  }
   .begin-btn{
     width: 3.8rem;
     height: 1rem;
