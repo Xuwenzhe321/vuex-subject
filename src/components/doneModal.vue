@@ -70,7 +70,7 @@
         this.$router.push('score')
       },
 //      再来一次
-      againPlay () {
+      againPlay (){
         this.$store.commit('CLEAR_TIME')
         this.$router.push('/')
       }
