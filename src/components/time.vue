@@ -1,13 +1,5 @@
 <template>
   <div class="time-score">
-    <div class="left-time">
-      <div class="time">
-        <div class="item">{{getMin}}</div>
-        <div class="tag">:</div>
-        <div class="item">{{getSec}}</div>
-      </div>
-      <div class="time-desc">考试结束倒计时</div>
-    </div>
     <div class="score">
       <svg width="1.733rem" height="1.733rem" viewBox="0 0 200 200"  preserveAspectRatio="xMinYMin slice"  version="1.1"xmlns="http://www.w3.org/2000/svg">
         <g><circle cx="100" cy="100" r="98" stroke="#ffde00" stroke-width="6" fill="#dd4b4b"/></g>
@@ -15,8 +7,9 @@
         <line x1="30" y1="120" x2="170" y2="120" style="stroke:#fff;stroke-width:2"/>
         <text x="55" y="160" style="font-size: 24pt;fill: #fff;">总分数</text>
       </svg>
+      <div class="begin-tip">请认真答题</div>
     </div>
-    <div class="begin-tip">答题开始咯</div>
+    
   </div>
 </template>
 

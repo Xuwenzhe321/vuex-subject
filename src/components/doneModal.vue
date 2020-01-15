@@ -24,10 +24,7 @@
     <div class="desc" v-html="tipsType"></div>
     <div class="btns">
       <div class="row flex">
-        <button class="red-bg" @click="againPlay">再来一次</button><button class="yellow-bg" @click="shareBorad">考试排行榜</button>
-      </div>
-      <div class="row">
-        <button class="green-bg share-btn">分享好友</button>
+        <button class="red-bg" @click="showTips">查看解决方案</button><button class="yellow-bg" @click="againPlay">再来一次</button>
       </div>
     </div>
   </div>
@@ -64,11 +61,11 @@
       }
     },
     methods: {
-//      统计结果，并跳转排行榜
-      shareBorad () {
-        this.$store.commit('GET_RESULT', this.totalScore)
-        this.$router.push('score')
-      },
+    showTips(){
+        window.location.href = 'http://www.Baidu.com'
+        window.open()
+
+    },
 //      再来一次
       againPlay (){
         this.$store.commit('CLEAR_TIME')
