@@ -28,7 +28,8 @@
         isClose: false,
         chooseId: null,
         isDone: false,
-        allScore: null
+        allScore: null,
+        theScoreHeget: this.$store.getters.theScoreHeget
       }
     },
     created () {
@@ -52,7 +53,7 @@
         'timer',
         'problems',
         'answerId',
-        'resultScore'
+        'resultScore',
       ]),
     },
     methods: {
@@ -65,6 +66,7 @@
           let obj = {}
           obj.answerId = this.chooseId.answerId
           obj.fid = this.chooseId.fid
+          obj.theScoreHeget= this.$store.theScoreHeget
           this.chooseId = null
 //        action提交
           this.addItem(obj)
@@ -77,6 +79,7 @@
           let obj = {}
           obj.answerId = this.chooseId.answerId
           obj.fid = this.chooseId.fid
+          obj.theScoreHeget=this.$store.theScoreHeget
           this.chooseId = null
 //        action提交
           this.addItem(obj)
@@ -97,7 +100,7 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    padding: 1.5rem 1rem;
+    padding: 0.5rem 0.5rem;
   }
   .item-con .question-item{
     width:100%;

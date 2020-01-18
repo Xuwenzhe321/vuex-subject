@@ -10,17 +10,19 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: home
+      component: home,
+      
     },
     {
       path: '/question',
       name: 'question',
-      component: question
+      component: question,
+     
     },
     {
       path: '/score',
       name: 'score',
-      component: score
+      component: score,
     }
   ]
 })

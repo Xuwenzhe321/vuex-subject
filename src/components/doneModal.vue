@@ -3,7 +3,8 @@
     <div class="top-score">
       <div class="tips">快看看成绩吧</div>
       <div class="score">
-        <span class="score-num" v-text="answerId.length*score"></span>
+<!--<span class="score-num" v-text="answerId.length*score"></span>-->
+<span class="score-num" v-text="theScoreHeget"></span>
         <span class="tag">分</span>
       </div>
       <div class="result">
@@ -41,37 +42,66 @@
     computed: {
       ...mapState([
         'problems',
-        'answerId',
-        'score'
+        'answerId', 
+        'score',
+        'theScoreHeget'
+    
       ]),
+
       tipsType () {
 //        定义得分板文字信息
-        const Score = this.answerId.length * this.score
-        this.totalScore = Score
-        if(70< Score &&  Score < 100){
-          return '荣获【学霸】的牛逼称号<br>苍老师都以你为荣';
+        const Score = this.theScoreHeget
+        //const Score = this.score
+        //this.totalScore = Score
+        
+        if(18< Score &&  Score < 50){
+          return '您的满足过多';
         }
-        else if(50 < Score && Score < 70){
-          return "还差一点哦，加油！"
+        else if(9 < Score && Score < 17){
+          return "恭喜，您对孩子的满足正合适"
         }
-        else if(Score < 50){
-          return "荣获【学渣】称号<br>老师都被你气的吐血了"
+        else if(Score < 8){
+          return "您的满足过多"
 
         }
-      }
+      },
+     showScore()
+    {
+        return this.$store.getters.theScoreHeget
+    }
+
+
     },
     methods: {
     showTips(){
-        window.location.href = 'http://www.Baidu.com'
+        const Score = this.theScoreHeget
+        //const Score = this.score
+        //this.totalScore = Score
+        
+        if(18< Score &&  Score < 50){
+           window.location.href = 'http://www.Baidu.com'
+        }
+        else if(9 < Score && Score < 17){
+           window.location.href = '543'
+        }
+        else if(Score < 8){
+           window.location.href = '123'
+
+        }
+       
         window.open()
+        
 
     },
 //      再来一次
       againPlay (){
         this.$store.commit('CLEAR_TIME')
         this.$router.push('/')
-      }
-    }
+      },
+      //defen 
+
+    },
+
   }
 </script>
 

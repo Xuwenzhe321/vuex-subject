@@ -15,3 +15,5 @@ export const CLEAR_TIME = 'CLEAR_TIME'
 export const GET_RESULT  = 'GET_RESULT'
 
 export const IS_DONE = 'IS_DONE'
+
+export const REPORT_SCORE ='REPORT_SCORE'
